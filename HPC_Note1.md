@@ -1,8 +1,8 @@
 ## 目次
 
 - [HPC\_Note1](#hpc_note1)
-  - [1.演算性能](#1演算性能)
-  - [2.並行処理と並行処理](#2並行処理と並行処理)
+  - [1. 演算性能](#1-演算性能)
+  - [2. 並行処理と並行処理](#2-並行処理と並行処理)
     - [並行処理](#並行処理)
     - [並列処理](#並列処理)
   - [3.Flynnの分類](#3flynnの分類)
@@ -34,22 +34,24 @@
     - [通信の帯域とレイテンシ](#通信の帯域とレイテンシ)
     - [DMA(Direct Memory Access)](#dmadirect-memory-access)
     - [非同期通信](#非同期通信)
-
-
+  - [10.物理コアと論理コア](#10物理コアと論理コア)
+  - [11.実システムの紹介](#11実システムの紹介)
+    - [Top500](#top500)
+    - [Green500](#green500)
 
 
 # HPC_Note1
 
-僕がHigh Performance Computingに関するメモを残し後から体系的に学ぶための場所
+ > 僕がHigh Performance Computingに関するメモを残し後から体系的に学ぶための場所
 
-## 1.演算性能
+## 1. 演算性能
 
 - 演算性能：FLOPS
   - FLOP : Floating point Operatyions は浮動小数点演算数
 - 通信性能：B/s
   - 必ずしも1B=8bitではないことに注意
 
-## 2.並行処理と並行処理
+## 2. 並行処理と並行処理
 
 ### 並行処理
   - 並行処理(Concurrent Processing)とは、複数の処理が時間的に重なりながら実行されることをさす。具体的には、物理的に同時に実行されるわけではなく、複数の処理が交互に進行することによってユーザには「同時に時移行されているように見える」という特徴がある。
@@ -307,3 +309,38 @@ NUMA node1 CPU(s):     14-27,42-55
 - ソケット2つの28coreCPUで2threadのクラスタ
   
 <img src="./Images/ppx-detail.png" alt="com" width="600">
+
+## 11.実システムの紹介
+
+- 富岳
+  - 電気代だけで年間50億円、総工費1100億円、理化学研究所と富士通と文部科学省HPCIとの連携
+
+
+### Top500
+
+- The 64th edition of the TOP500 reveals that El Capitan has achieved the top spot and is officially the third system to reach exascale computing after Frontier and Aurora. Both systems have since moved down to No. 2 and No. 3 spots, respectively. Additionally, new systems have found their way onto the Top 10.
+
+  The new El Capitan system at the Lawrence Livermore National Laboratory in California, U.S.A., has debuted as the most powerful system on the list with an HPL score of 1.742 EFlop/s. It has 11,039,616 combined CPU and GPU cores and is based on AMD 4th generation EPYC processors with 24 cores at 1.8GHz and AMD Instinct MI300A accelerators. El Capitan relies on a Cray Slingshot 11 network for data transfer and achieves an energy efficiency of 58.89 Gigaflops/watt. This power efficiency rating helped El Capitan achieve No. 18 on the GREEN500 list as well.
+
+  The Frontier system at Oak Ridge National Laboratory in Tennessee, U.S.A, has moved down to the No. 2 spot. It has increased its HPL score from 1.206 Eflop/s on the last list to 1.353 Eflop/s on this list. Frontier has also increased its total core count, from 8,699,904 cores on the last list to 9,066,176 cores on this list. It relies on Cray’s Slingshot 11 network for data transfer.
+
+  The Aurora system at Argonne Leadership Computing Facility in Illinois, U.S.A, has claimed the No. 3 spot on this TOP500 list. The machine kept its HPL benchmark score from the last list, achieving 1.012 Exaflop/s. Aurora is built by Intel based on the HPE Cray EX – Intel Exascale Compute blade which uses Intel Xeon CPU Max Series Processors and Intel Data Center GPU Max Series accelerators that communicate through Cray’s Slingshot-11 network interconnect.
+
+  The Eagle system installed on the Microsoft Azure Cloud in the U.S.A. claimed the No. 4 spot and remains the highest-ranked cloud-based system on the TOP500. It has an HPL score of 561.2 PFlop/s
+
+  The only other new system in the TOP 5 is the HPC6 system at No. 5. This machine is installed at Eni S.p.A center in Ferrera Erbognone, Italy and has the same architecture as the No. 2 system Frontier. The HPC6 system at Eni achieved an HPL benchmark of 477.90 PFlop/s and is now the fastest system in Europe.
+
+### Green500
+
+- In the Green500 the systems of the TOP500 are ranked by how much computational performance they deliver on the HPL benchmark per Watt of electrical power consumed. This electrical power efficiency is measured in Gigaflops/Watt. This ranking is not driven by the size of a system but by its technology and the ranking order looks therefor very different from the TOP500. The computational efficiency of a system tends to slightly decrease with system size, which among technologically identical system gives smaller system the advantage. 
+
+  > 30th / TSUBAME4.0 - HPE Cray XD665, AMD EPYC 9654 96C 3.55GHz, Nvidia H100 SXM5 94Gb, Infiniband NDR200, Redhat Linux, HPE
+
+  > 33th / Miyabi-G - Supermicro ARS 111GL DNHR LCC, Grace Hopper Superchip 72C 3GHz, Infiniband NDR200, Rocky Linux, Fujitsu
+Joint Center for Advanced High Performance Computing
+
+  > 48th / Pegasus - NEC LX 102Bk-6, Xeon Platinum 8468 48C 2.1GHz, NVIDIA H100 PCIe 80GB, Infiniband NDR200, Ubuntu 22.04, NEC
+Center for Computational Sciences, University of Tsukuba
+
+  > 86th / Supercomputer Fugaku - Supercomputer Fugaku, A64FX 48C 2.2GHz, Tofu interconnect D, Fujitsu
+RIKEN Center for Computational Science
