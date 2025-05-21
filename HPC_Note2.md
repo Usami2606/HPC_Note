@@ -234,3 +234,23 @@ salloc -p ${PART} -N 1\
 詳しくはこちら：
 [アーキテクチャチームがオープンラボで使ったPPXの仕様が書かれた資料](https://www.hpcs.cs.tsukuba.ac.jp/~taisuke/OpenLab2018-Arch.pdf)
 
+## GitHub
+
+- 今あるローカルのファイルをリモートリポジトリに登録する手順
+
+1. 対象フォルダに移動
+```bash
+cd /path/to/your/project
+```
+
+2. Gitリポジトリを初期化
+- Gitリポジトリを新規作成するコマンド、git initを実行すると隠しディレクトリ.git/が作成される。
+```bash
+git init
+```
+
+3.リモートリポジトリを登録
+```bash
+git remote add origin https:://github.com/Username/project.git
+````
+
